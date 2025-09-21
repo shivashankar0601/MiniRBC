@@ -1,6 +1,5 @@
 package com.mrbc.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +22,6 @@ import java.util.List;
 public class BankUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
 
     @Column(nullable = false)
@@ -38,6 +36,6 @@ public class BankUser {
     @Column(nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "bankUser", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private List<BankAccount> accounts;
 }
