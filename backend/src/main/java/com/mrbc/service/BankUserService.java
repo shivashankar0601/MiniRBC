@@ -1,5 +1,6 @@
 package com.mrbc.service;
 
+import com.mrbc.exceptions.ResourceNotFoundException;
 import com.mrbc.model.BankAccount;
 import com.mrbc.model.BankUser;
 import com.mrbc.repository.BankUserRepository;
@@ -11,14 +12,16 @@ import java.util.List;
 @Service
 public class BankUserService {
     @Autowired
-    private BankUserRepository bankUserRepository;
+    private BankAccountService bankAccountService;
 
     @Autowired
-    private BankAccountService bankAccountService;
+    private BankUserRepository bankUserRepository;
 
     public BankUser createUser(BankUser bankUser) {
         if (bankUser.getAccounts() != null) {
             for (BankAccount account : bankUser.getAccounts()) {
+//                var createdAccount = bankAccountService.createAccountForUser(bankUser.getId(), account);
+//                createdAccount.setBankUser(bankUser);
                 account.setBankUser(bankUser);
             }
         }
@@ -30,6 +33,6 @@ public class BankUserService {
     }
 
     public BankUser getUserById(Long id) {
-        return bankUserRepository.findById(id).orElseThrow(()-> new RuntimeException("User not found with id: " + id));
+        return bankUserRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
     }
 }
