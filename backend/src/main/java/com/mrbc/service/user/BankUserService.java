@@ -1,9 +1,10 @@
-package com.mrbc.service;
+package com.mrbc.service.user;
 
 import com.mrbc.exceptions.ResourceNotFoundException;
 import com.mrbc.model.BankAccount;
 import com.mrbc.model.BankUser;
-import com.mrbc.repository.BankUserRepository;
+import com.mrbc.repository.user.BankUserRepository;
+import com.mrbc.service.account.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

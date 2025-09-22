@@ -1,7 +1,7 @@
-package com.mrbc.controller;
+package com.mrbc.controller.account;
 
 import com.mrbc.model.BankAccount;
-import com.mrbc.service.BankAccountService;
+import com.mrbc.service.account.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

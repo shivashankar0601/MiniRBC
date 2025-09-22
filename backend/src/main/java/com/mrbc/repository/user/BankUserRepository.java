@@ -1,4 +1,4 @@
-package com.mrbc.repository;
+package com.mrbc.repository.user;
 
 import com.mrbc.model.BankUser;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +13,6 @@ public interface BankUserRepository extends JpaRepository<BankUser, Long> {
     Optional<BankUser> findByEmail(String email);
 
     Optional<BankUser> findByPhoneNumber(String phoneNumber);
+
+    boolean existsByEmail(String email);
 }

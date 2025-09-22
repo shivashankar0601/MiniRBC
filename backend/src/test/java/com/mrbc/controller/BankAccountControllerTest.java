@@ -1,8 +1,9 @@
 package com.mrbc.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mrbc.controller.user.BankUserController;
 import com.mrbc.model.BankUser;
-import com.mrbc.service.BankUserService;
+import com.mrbc.service.user.BankUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,7 +35,7 @@ class BankAccountControllerTest {
     private BankUserService bankUserService;
 
     @InjectMocks
-    private com.mrbc.controller.BankUserController bankUserController;
+    private BankUserController bankUserController;
 
     private ObjectMapper objectMapper;
 

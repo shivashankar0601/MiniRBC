@@ -30,6 +30,15 @@ public class BankUser {
     @Column(unique = true, nullable = false)
     private String email;
 
+    /**
+     * Store hashed password
+     **/
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String role = "ROLE_USER";
+
     @Column(nullable = false)
     private String phoneNumber;
 

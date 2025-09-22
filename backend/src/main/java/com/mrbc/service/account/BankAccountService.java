@@ -1,11 +1,11 @@
-package com.mrbc.service;
+package com.mrbc.service.account;
 
 import com.mrbc.exceptions.InsufficientFundsException;
 import com.mrbc.exceptions.ResourceNotFoundException;
 import com.mrbc.model.BankAccount;
 import com.mrbc.model.BankUser;
-import com.mrbc.repository.BankAccountRepository;
-import com.mrbc.repository.BankUserRepository;
+import com.mrbc.repository.account.BankAccountRepository;
+import com.mrbc.repository.user.BankUserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

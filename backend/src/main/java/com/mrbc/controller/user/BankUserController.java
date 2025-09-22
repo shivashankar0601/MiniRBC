@@ -1,7 +1,7 @@
-package com.mrbc.controller;
+package com.mrbc.controller.user;
 
 import com.mrbc.model.BankUser;
-import com.mrbc.service.BankUserService;
+import com.mrbc.service.user.BankUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,12 +25,12 @@ public class BankUserController {
     }
 
     @GetMapping
-    public List<BankUser> getAllUsers(){
+    public List<BankUser> getAllUsers() {
         return bankUserService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public BankUser getUserById(@PathVariable Long id){
+    public BankUser getUserById(@PathVariable Long id) {
         return bankUserService.getUserById(id);
     }
 }

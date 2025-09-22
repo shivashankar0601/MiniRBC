@@ -1,4 +1,4 @@
-package com.mrbc.repository;
+package com.mrbc.repository.account;
 
 import com.mrbc.model.BankAccount;
 import jakarta.persistence.LockModeType;
