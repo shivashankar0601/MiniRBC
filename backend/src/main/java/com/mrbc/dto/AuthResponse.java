@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class AuthResponse {
-    // JWT token returned after login
-    private String token;
+  // JWT token returned after login
+  private String token;
 }

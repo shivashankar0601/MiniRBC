@@ -1,7 +1,7 @@
 package com.mrbc.controller.auth;
 
-import com.mrbc.dto.AuthResponse;
 import com.mrbc.dto.AuthRequest;
+import com.mrbc.dto.AuthResponse;
 import com.mrbc.dto.UserRegistrationRequest;
 import com.mrbc.model.BankUser;
 import com.mrbc.service.auth.AuthService;
@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthService authService;
+  private final AuthService authService;
 
-    @PostMapping("/register")
-    public ResponseEntity<BankUser> register(@RequestBody @Valid UserRegistrationRequest request) {
-        BankUser user = authService.register(request);
-        return ResponseEntity.ok(user);
-    }
+  @PostMapping("/register")
+  public ResponseEntity<BankUser> register(@RequestBody @Valid UserRegistrationRequest request) {
+    BankUser user = authService.register(request);
+    return ResponseEntity.ok(user);
+  }
 
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody @Valid AuthRequest request) {
-        return ResponseEntity.ok(authService.login(request));
-    }
+  @PostMapping("/login")
+  public ResponseEntity<AuthResponse> login(@RequestBody @Valid AuthRequest request) {
+    return ResponseEntity.ok(authService.login(request));
+  }
 }
