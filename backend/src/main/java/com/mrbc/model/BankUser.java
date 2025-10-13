@@ -7,12 +7,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @Data
@@ -20,22 +19,29 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class BankUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(nullable = false)
-    private String name;
+  @Column(nullable = false)
+  private String name;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+  @Column(unique = true, nullable = false)
+  private String email;
 
-    @Column(nullable = false)
-    private String phoneNumber;
+  /** Store hashed password */
+  @Column(nullable = false)
+  private String password;
 
-    @Column(nullable = false)
-    private String address;
+  @Column(nullable = false)
+  private String role = "ROLE_USER";
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private List<BankAccount> accounts;
+  @Column(nullable = false)
+  private String phoneNumber;
+
+  @Column(nullable = false)
+  private String address;
+
+  @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+  private List<BankAccount> accounts;
 }
