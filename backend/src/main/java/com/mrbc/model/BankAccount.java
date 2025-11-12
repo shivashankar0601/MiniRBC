@@ -14,12 +14,11 @@ import jakarta.persistence.Version;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -28,36 +27,33 @@ import java.math.BigDecimal;
 @Builder
 public class BankAccount {
 
-    @Version
-    @JsonIgnore
-    private Long version;
+  @Version @JsonIgnore private Long version;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(unique = true, nullable = false)
-    @NotBlank
-    private String accountNumber;
+  @Column(unique = true, nullable = false)
+  @NotBlank
+  private String accountNumber;
 
-    @Column(nullable = false)
-    private String transitNumber = "03413";
+  @Column(nullable = false)
+  private String transitNumber = "03413";
 
-    @Column(nullable = false)
-    private String institutionNumber = "003";
+  @Column(nullable = false)
+  private String institutionNumber = "003";
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private AccountType accountType;
+  @NotNull
+  @Enumerated(EnumType.STRING)
+  private AccountType accountType;
 
-    @DecimalMin(value = "0.0")
-    private BigDecimal balance;
+  @DecimalMin(value = "0.0")
+  private BigDecimal balance;
 
-    @JsonIgnore
-    private boolean active = true;
+  @JsonIgnore private boolean active = true;
 
-    @ManyToOne
-    @JoinColumn(name = "bank_user_id")
-    @JsonIgnore
-    private BankUser bankUser;
+  @ManyToOne
+  @JoinColumn(name = "bank_user_id")
+  @JsonIgnore
+  private BankUser bankUser;
 }
