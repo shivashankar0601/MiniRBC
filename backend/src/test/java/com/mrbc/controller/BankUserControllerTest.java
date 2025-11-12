@@ -103,7 +103,7 @@ class BankUserControllerTest {
 
         // Perform the request using the JWT token for authentication
         mockMvc
-                .perform(post("/api/users")
+                .perform(post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(newUser))
                         .header("Authorization", "Bearer " + jwtToken))  // Add JWT token to request header
@@ -152,7 +152,7 @@ class BankUserControllerTest {
 //        when(bankUserService.createUser(Mockito.any(BankUser.class))).thenReturn(user);
 //
 //        mockMvc.perform(
-//                        post("/api/users")
+//                        post("/api/v1/users")
 //                                .contentType(MediaType.APPLICATION_JSON)
 //                                .content(objectMapper.writeValueAsString(user)))
 //                .andExpect(status().isOk())  // Ensure the status is 200
@@ -165,7 +165,7 @@ class BankUserControllerTest {
         when(bankUserService.getAllUsers()).thenReturn(List.of(user));
 
         mockMvc
-                .perform(get("/api/users"))
+                .perform(get("/api/v1/users"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()").value(1))
                 .andExpect(jsonPath("$[0].email").value("shiva@example.com"));
@@ -176,7 +176,7 @@ class BankUserControllerTest {
         when(bankUserService.getUserById(1L)).thenReturn(user);
 
         mockMvc
-                .perform(get("/api/users/1"))
+                .perform(get("/api/v1/users/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Shiva Shankar"))
                 .andExpect(jsonPath("$.email").value("shiva@example.com"));

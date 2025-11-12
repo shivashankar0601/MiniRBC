@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MrbcApplication {
+public class MRBCApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(MrbcApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(MRBCApplication.class, args);
+    }
 }
